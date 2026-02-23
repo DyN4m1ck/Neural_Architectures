@@ -1,10 +1,15 @@
 # main.py
 from architectures import Architecture, ArchitectureManager
+from connection_manager import initialize_database
 
 def demo():
-    with ArchitectureManager() as db:
+    # Initialize database connection
+    db = initialize_database()
+    print("✅ Database initialized")
+    
+    with ArchitectureManager() as arch_db:
         # Clear database
-        db.clear_db()
+        arch_db.clear_db()
         
         # Create architectures
         cnn = Architecture(
@@ -14,7 +19,7 @@ def demo():
             year=1998,
             description="Convolutional Neural Network for image recognition"
         )
-        cnn_id = db.create(cnn)
+        cnn_id = arch_db.create(cnn)
         print(f"✓ Created CNN, ID: {cnn_id}")
         
         transformer = Architecture(
@@ -24,25 +29,25 @@ def demo():
             year=2017,
             description="Attention Is All You Need"
         )
-        tf_id = db.create(transformer)
+        tf_id = arch_db.create(transformer)
         print(f"✓ Created Transformer, ID: {tf_id}")
         
         # Read all
         print("\n📋 All architectures:")
-        for arch in db.get_all():
+        for arch in arch_db.get_all():
             print(f"  • {arch.name} ({arch.year}) — {arch.authors[0]} et al.")
         
         # Search
         print("\n🔍 Search for 'attention':")
-        for arch in db.search("attention"):
+        for arch in arch_db.search("attention"):
             print(f"  • {arch.name}: {arch.description}")
         
         # Update
-        db.update("CNN", description="Foundation of modern computer vision")
+        arch_db.update("CNN", description="Foundation of modern computer vision")
         print("\n✏️ Updated CNN description")
         
         # Verify update
-        updated = db.get_by_name("CNN")
+        updated = arch_db.get_by_name("CNN")
         print(f"  New description: {updated.description}")
 
 if __name__ == "__main__":
