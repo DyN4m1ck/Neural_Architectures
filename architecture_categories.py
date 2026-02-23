@@ -123,7 +123,7 @@ class CategoryManager(DBManager):
             },
             {
                 "name": "Feedforward Architectures",
-                "description": "Traditional neural networks with connections that flow only in one direction, from input to output, without cycles."
+                "description": "Traditional neural networks with connections that flow only in one direction, from input to output, without cycles. General parameters for all feedforward architectures include: Data Preprocessing (Normalization - min-max, standard (μ=0, σ=1), robust; Scaling - logarithmic, exponential; Categorical feature encoding - one-hot, label encoding, embedding; Missing value handling - removal, imputation, indication), Initialization (Random Seed for reproducibility; Initialization method - Xavier, He, random, zero; Initialization distribution - normal, uniform, special), Validation and Testing (Data splitting - train/validation/test sets; Cross-validation - k-fold, stratified, leave-one-out; Evaluation metrics - accuracy, F1, AUC, MSE, MAE, etc.), Post-processing (Probability calibration - for classification; Ensemble methods - bagging, boosting, stacking; Interpretation - SHAP, LIME, feature importance)."
             },
             {
                 "name": "Перцептрон (Perceptron)",
