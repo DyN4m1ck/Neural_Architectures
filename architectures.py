@@ -1,7 +1,7 @@
 # architectures.py
 from dataclasses import dataclass, asdict
 from typing import Optional, List
-from connection_manager import ConnectionManager as DBManager
+from connection_manager import ConnectionManager
 
 @dataclass
 class Architecture:
@@ -13,7 +13,7 @@ class Architecture:
     description: Optional[str] = None
     id: Optional[str] = None
 
-class ArchitectureManager(DBManager):
+class ArchitectureManager(ConnectionManager):
     LABEL = "Architecture"
     
     def create(self, arch: Architecture) -> str:

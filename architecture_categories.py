@@ -4,7 +4,7 @@ Module for managing architecture categories in the database.
 
 from dataclasses import dataclass
 from typing import Optional, List
-from connection_manager import ConnectionManager as DBManager
+from connection_manager import ConnectionManager
 from architecture_data import ARCHITECTURE_CATEGORIES
 
 
@@ -18,7 +18,7 @@ class ArchitectureCategory:
     id: Optional[str] = None
 
 
-class CategoryManager(DBManager):
+class CategoryManager(ConnectionManager):
     """
     Manager class for handling architecture category operations in the database.
     """
