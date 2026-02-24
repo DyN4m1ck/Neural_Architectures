@@ -1,7 +1,7 @@
 # architectures.py
 from dataclasses import dataclass, asdict
 from typing import Optional, List
-from db_manager import DBManager
+from connection_manager import ConnectionManager as DBManager
 
 @dataclass
 class Architecture:
