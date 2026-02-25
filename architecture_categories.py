@@ -38,7 +38,7 @@ class CategoryManager(ConnectionManager):
         CREATE (c:ArchitectureCategory {name: $name, description: $description})
         RETURN c.name AS name, c.description AS description
         """
-        result = self.run_write(query, {"name": name, "description": description})
+        result = self.run_write_query(query, {"name": name, "description": description})
         
         # Return the created category
         return ArchitectureCategory(name=name, description=description)
@@ -55,7 +55,7 @@ class CategoryManager(ConnectionManager):
         RETURN c.name AS name, c.description AS description
         ORDER BY c.name
         """
-        records = self.run_read(query)
+        records = self.run_query(query)
         return [
             ArchitectureCategory(
                 name=record["name"],
@@ -79,7 +79,7 @@ class CategoryManager(ConnectionManager):
         WHERE c.name = $name
         RETURN c.name AS name, c.description AS description
         """
-        records = self.run_read(query, {"name": name})
+        records = self.run_query(query, {"name": name})
         if records:
             record = records[0]
             return ArchitectureCategory(
@@ -104,7 +104,7 @@ class CategoryManager(ConnectionManager):
         DETACH DELETE c
         """
         try:
-            self.run_write(query, {"name": name})
+            self.run_write_query(query, {"name": name})
             return True
         except Exception:
             return False
