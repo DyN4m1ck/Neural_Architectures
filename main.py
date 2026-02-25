@@ -9,7 +9,7 @@ def demo():
     
     with ArchitectureManager() as arch_db:
         # Clear database
-        arch_db.clear_db()
+        # arch_db.clear_db()
         
         # Create architectures
         cnn = Architecture(
