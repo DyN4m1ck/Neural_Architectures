@@ -5,7 +5,7 @@ Module for managing architecture categories in the database.
 from dataclasses import dataclass
 from typing import Optional, List
 from connection_manager import ConnectionManager
-from architecture_data import ARCHITECTURE_CATEGORIES
+from Architecture_Categories.architecture_data import ARCHITECTURE_CATEGORIES
 
 
 @dataclass
