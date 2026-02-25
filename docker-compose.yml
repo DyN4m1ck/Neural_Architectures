@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # Это сервис базы данных
+  memgraph:
+    image: memgraph/memgraph-mage:3.8.0
+    container_name: memgraph-db
+    ports:
+      - "7687:7687"  # Порт для подключения к данным
+      - "7444:7444"  # Порт для логов
+    # Эти настройки помогают базе работать стабильнее
+    environment:
+      - MEMGRAPH_user=memgraph
+      - MEMGRAPH_password=memgraph
+    # Выделяем немного памяти, чтобы база не вылетала
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+
+  # Это сервис интерфейса (Lab)
+  memgraph-lab:
+    image: memgraph/lab:3.8.0
+    container_name: memgraph-lab
+    ports:
+      - "3000:3000"
+    depends_on:
+      - memgraph
