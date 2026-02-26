@@ -28,7 +28,7 @@ class ArchitectureManager(ConnectionManager):
             })
             RETURN id(a) as id
         """
-        result = self.run_read(query, asdict(arch))
+        result = self.run_query(query, asdict(arch))
         return str(result[0]['id']) if result else None
 
     def get_by_name(self, name: str) -> Optional[Architecture]:
@@ -37,7 +37,7 @@ class ArchitectureManager(ConnectionManager):
             MATCH (a:Architecture {name: $name})
             RETURN a {.*} as data
         """
-        result = self.run_read(query, {"name": name})
+        result = self.run_query(query, {"name": name})
         if not result:
             return None
         data = result[0]['data']
@@ -46,7 +46,7 @@ class ArchitectureManager(ConnectionManager):
     def get_all(self) -> List[Architecture]:
         """Get all architectures"""
         query = "MATCH (a:Architecture) RETURN a {.*} as data"
-        results = self.run_read(query)
+        results = self.run_query(query)
         return [Architecture(**r['data']) for r in results]
 
     def update(self, name: str, **updates) -> bool:
@@ -60,7 +60,7 @@ class ArchitectureManager(ConnectionManager):
             RETURN count(a) > 0 as success
         """
         params = {"name": name, **updates}
-        result = self.run_read(query, params)
+        result = self.run_query(query, params)
         return result[0]['success'] if result else False
 
     def delete(self, name: str) -> bool:
@@ -70,7 +70,7 @@ class ArchitectureManager(ConnectionManager):
             DETACH DELETE a
             RETURN count(a) > 0 as success
         """
-        result = self.run_read(query, {"name": name})
+        result = self.run_query(query, {"name": name})
         return result[0]['success'] if result else False
 
     def search(self, keyword: str) -> List[Architecture]:
@@ -81,5 +81,5 @@ class ArchitectureManager(ConnectionManager):
                OR toLower(a.description) CONTAINS toLower($kw)
             RETURN a {.*} as data
         """
-        results = self.run_read(query, {"kw": keyword})
+        results = self.run_query(query, {"kw": keyword})
         return [Architecture(**r['data']) for r in results]
