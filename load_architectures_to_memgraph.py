@@ -21,7 +21,7 @@ def get_all_architecture_categories():
     categories.extend(ARCHITECTURE_CATEGORIES)
     
     # Get all Python files in Architecture_Categories directory
-    arch_dir = '/workspace/Architecture_Categories'
+    arch_dir = os.path.join(os.path.dirname(__file__), 'Architecture_Categories')
     for filename in os.listdir(arch_dir):
         if filename.endswith('.py') and filename != '__init__.py' and filename != 'architecture_data.py':
             filepath = os.path.join(arch_dir, filename)
