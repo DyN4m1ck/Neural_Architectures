@@ -4,6 +4,7 @@ Script to initialize architecture categories in the database.
 """
 
 from architecture_categories import CategoryManager
+from Architecture_Categories import architecture_data
 
 def main():
     print("Initializing architecture categories...")
