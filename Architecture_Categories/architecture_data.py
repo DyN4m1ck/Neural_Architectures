@@ -1,11 +1,9 @@
 """
 Module containing architecture categories data as general parameters.
 """
-from . import FeedForward
+from .FeedForward import ARCHITECTURE_CATEGORIES
 # Architecture categories data
 
-ARCHITECTURE_CATEGORIES = FeedForward.ARCHITECTURE_CATEGORIES
-
 # Additional general parameters
-DEFAULT_CATEGORY_NAMES = [category["name"] for category in FeedForward.ARCHITECTURE_CATEGORIES]
-CATEGORY_COUNT = len(FeedForward.ARCHITECTURE_CATEGORIES)
+DEFAULT_CATEGORY_NAMES = [category["name"] for category in ARCHITECTURE_CATEGORIES]
+CATEGORY_COUNT = len(ARCHITECTURE_CATEGORIES)
