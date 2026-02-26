@@ -1,6 +1,8 @@
 """
 Module for Транформеры и механизмы внимания
 """
+from dataclasses import dataclass
+from typing import Optional
 
 # Specialized Architectures data
 SPECIALIZED_ARCHITECTURES = [
@@ -10,3 +12,11 @@ SPECIALIZED_ARCHITECTURES = [
     }
 ]
 
+@dataclass
+class TransformersAndAttention:
+    """
+    Represents a State Space Model Architecture category in the database.
+    """
+    name: str
+    description: str
+    id: Optional[str] = None

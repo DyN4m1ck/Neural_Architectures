@@ -1,6 +1,8 @@
 """
 Module for FeedForward Architectures
 """
+from dataclasses import dataclass
+from typing import Optional
 
 # Convolutional Architectures data
 CONVOLUTIONAL_ARCHITECTURES = [
@@ -9,6 +11,15 @@ CONVOLUTIONAL_ARCHITECTURES = [
         "description": "artificial neural networks in which the signal propagates strictly from the input layer to the output"
     }
 ]
+
+@dataclass
+class FeedForward:
+    """
+    Represents a FeedForward Architecture category in the database.
+    """
+    name: str
+    description: str
+    id: Optional[str] = None
 
 # Architecture categories data
 ARCHITECTURE_CATEGORIES = [

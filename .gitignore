@@ -1,10 +1,60 @@
-```
-# Compiled Python files
-*.pyc
+```gitignore
+# Python
 __pycache__/
-
-# Environment files
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
 .env
-.env.local
-*.env.*
+.env.*
+.venv.bak/
+.python-version
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing
+.coverage
+coverage/
+htmlcov/
+.nyc_output/
+.pytest_cache/
+.hypothesis/
+
+# Distribution / packaging
+.Python
+*.so
+.Python
+*.egg-info/
+.eggs/
+.installed.cfg
+*.egg
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Icon?
+```
+
+Wait, let me reconsider. The file changes only show Python source files (.py) being added/modified, not any build artifacts or temporary files. According to rule #6, if the changes contain only source files and no build artifacts, dependencies, or temp files, I should output an empty .gitignore.
+
+Actually looking at the added/modified files, they are all Python source files (.py). No build artifacts, dependencies, or temporary files are present in the change list.
+
+```gitignore
+
 ```
