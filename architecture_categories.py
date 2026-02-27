@@ -5,7 +5,7 @@ Module for managing architecture categories in the database.
 from dataclasses import dataclass
 from typing import Optional, List
 from connection_manager import ConnectionManager
-from Architecture_Categories.architecture_data import ARCHITECTURE_CATEGORIES
+from Architecture_Categories.architecture_data import FEEDFORWARD_ARCHITECTURES
 
 
 @dataclass
@@ -113,7 +113,7 @@ class CategoryManager(ConnectionManager):
         """
         Create default architecture categories if they don't exist in the database.
         """
-        default_categories = ARCHITECTURE_CATEGORIES
+        default_categories = FEEDFORWARD_ARCHITECTURES
 
         for category_data in default_categories:
             # Check if category already exists
