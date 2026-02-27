@@ -1,119 +1,146 @@
+
+---
+
+## Быстрое решение (можете использовать прямо сейчас):
+
+```python
 #!/usr/bin/env python3
 """
-Script to run Memgraph in-memory and load all architecture categories as labels
+Script to create two-level hierarchy in Memgraph:
+Level 1: 17 Category nodes
+Level 2: Architecture nodes linked to categories
 """
 
-import tempfile
-import subprocess
-import time
-import sys
 import os
-import signal
+import sys
+import importlib.util
 from pathlib import Path
 
-# Add workspace to path
 sys.path.append('/workspace')
 
-from Architecture_Categories.architecture_data import ARCHITECTURE_CATEGORIES
-import importlib.util
-
-
-def get_all_architecture_categories():
-    """Get all architecture categories from all files in Architecture_Categories directory"""
-    categories = []
+def get_all_categories_and_architectures():
+    """Parse all 17 files and extract categories + architectures"""
     
-    # Add the main FeedForward categories
-    categories.extend(ARCHITECTURE_CATEGORIES)
+    arch_dir = Path('/workspace/Architecture_Categories')
+    result = {}
     
-    # Get all Python files in Architecture_Categories directory
-    arch_dir = os.path.join(os.path.dirname(__file__), 'Architecture_Categories')
-    for filename in os.listdir(arch_dir):
-        if filename.endswith('.py') and filename != '__init__.py' and filename != 'architecture_data.py':
-            filepath = os.path.join(arch_dir, filename)
-            
-            # Import the module dynamically
-            spec = importlib.util.spec_from_file_location(filename[:-3], filepath)
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
-            
-            # Look for any list attributes in the module that contain architecture data
-            for attr_name in dir(module):
+    # Files to process (excluding __init__.py and architecture_data.py)
+    files_to_process = [
+        'FeedForward.py',
+        'CNN.py',
+        'GNN.py',
+        'TransformersAndAttention.py',
+        'Generative.py',
+        'NAS.py',
+        'Multimodal.py',
+        'EnergyAndEquilibrium.py',
+        'EfficientAndMobile.py',
+        'RecAndSeq.py',
+        'RL.py',
+        'StateSpace.py',
+        'SmallDataAndFewShot.py',
+        'Specialized.py',
+        'SpikeAndNeuromorphic.py',
+        'NeuroSymbolicAndHybrid.py',
+        'NeuralODEsAndContin.py'
+    ]
+    
+    for filename in files_to_process:
+        filepath = arch_dir / filename
+        if not filepath.exists():
+            print(f"Warning: {filename} not found")
+            continue
+        
+        # Extract category name from filename
+        category_name = filename.replace('.py', '')
+        
+        # Import module
+        spec = importlib.util.spec_from_file_location(category_name, filepath)
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        
+        # Find architecture lists in module
+        architectures = []
+        for attr_name in dir(module):
+            if attr_name.endswith('_ARCHITECTURES') or attr_name == 'ARCHITECTURE_CATEGORIES':
                 attr_value = getattr(module, attr_name)
-                if isinstance(attr_value, list) and attr_name != '__builtins__':
-                    for item in attr_value:
-                        if isinstance(item, dict) and 'name' in item:
-                            categories.append(item)
+                if isinstance(attr_value, list):
+                    architectures.extend(attr_value)
+        
+        result[category_name] = architectures
+        print(f"✓ {category_name}: {len(architectures)} architectures")
     
-    return categories
+    return result
 
 
-def create_memgraph_startup_script(categories):
-    """Create a startup script to populate Memgraph with all architecture categories"""
+def create_memgraph_queries(categories_dict):
+    """Generate Cypher queries for two-level hierarchy"""
     
-    # Generate Cypher queries to create nodes with labels for each architecture
-    cypher_commands = []
+    queries = []
     
-    for idx, category in enumerate(categories):
-        name = category.get('name', f'Architecture_{idx}')
-        description = category.get('description', '')
-        
-        # Create a label based on the architecture name (replacing spaces and special characters)
-        label = name.replace(" ", "").replace("-", "").replace("(", "").replace(")", "").replace("&", "").replace(",", "").replace(".", "")
-        
-        # Escape quotes in name and description
-        escaped_name = name.replace("'", "\\'").replace('"', '\\"')
-        escaped_description = description.replace("'", "\\'").replace('"', '\\"')
-        
-        query = f"CREATE (a:`{label}` {{name: '{escaped_name}', description: '{escaped_description}'}});"
-        cypher_commands.append(query)
+    # 1. Create indexes for performance
+    queries.append("CREATE INDEX ON :Category(name);")
+    queries.append("CREATE INDEX ON :Architecture(name);")
     
-    # Create startup script content
-    script_content = "#!/usr/bin/bash\n\n"
-    script_content += "# Memgraph startup script to load architecture categories\n\n"
+    # 2. Create 17 Category nodes
+    for category_name in categories_dict.keys():
+        queries.append(f"""
+        CREATE (c:Category {{
+            name: '{category_name}',
+            type: 'category_group',
+            architecture_count: {len(categories_dict[category_name])}
+        }});
+        """)
     
-    # Add each Cypher command
-    for cmd in cypher_commands:
-        script_content += f'mgconsole --host localhost --port 7687 << EOF\n{cmd}\nEOF\n'
+    # 3. Create Architecture nodes and link to categories
+    for category_name, architectures in categories_dict.items():
+        for idx, arch in enumerate(architectures):
+            name = arch.get('name', f'Arch_{idx}')
+            description = arch.get('description', '')
+            
+            # Escape special characters
+            name_escaped = name.replace("'", "\\'").replace('"', '\\"')
+            desc_escaped = description.replace("'", "\\'").replace('"', '\\"')
+            
+            # Create architecture with category label
+            queries.append(f"""
+            MATCH (c:Category {{name: '{category_name}'}})
+            CREATE (a:Architecture:`{category_name}` {{
+                name: '{name_escaped}',
+                description: '{desc_escaped}',
+                category: '{category_name}'
+            }})
+            CREATE (a)-[:BELONGS_TO]->(c);
+            """)
     
-    return script_content
+    return queries
 
 
 def main():
-    """Main function to prepare Memgraph startup script"""
-    print("Preparing architecture categories for Memgraph...")
+    print("🔍 Parsing all 17 category files...")
+    categories_dict = get_all_categories_and_architectures()
     
-    # Get all architecture categories
-    all_categories = get_all_architecture_categories()
+    total_archs = sum(len(archs) for archs in categories_dict.values())
+    print(f"\n📊 Found {len(categories_dict)} categories with {total_archs} total architectures")
     
-    print(f"Found {len(all_categories)} architecture categories:")
-    for cat in all_categories[:10]:  # Print first 10 for preview
-        print(f"  - {cat['name']}")
-    if len(all_categories) > 10:
-        print(f"  ... and {len(all_categories) - 10} more")
+    print("\n📝 Generating Cypher queries...")
+    queries = create_memgraph_queries(categories_dict)
     
-    # Create startup script
-    startup_script = create_memgraph_startup_script(all_categories)
+    # Save to file
+    output_file = '/workspace/memgraph_two_level_hierarchy.cypher'
+    with open(output_file, 'w') as f:
+        f.write('-- Two-level hierarchy: Categories -> Architectures\n\n')
+        for query in queries:
+            f.write(query + '\n')
     
-    # Write the startup script to a temporary file
-    with tempfile.NamedTemporaryFile(mode='w', suffix='_memgraph_startup.sh', delete=False) as f:
-        f.write(startup_script)
-        startup_script_path = f.name
+    print(f"✅ Queries saved to: {output_file}")
+    print(f"\n📌 To load into Memgraph:")
+    print(f"   mgconsole --host localhost --port 7687 < {output_file}")
     
-    print(f"\nStartup script created at: {startup_script_path}")
-    print("Make sure to run this script after starting Memgraph:")
-    print(f"chmod +x {startup_script_path}")
-    print(f"./{startup_script_path}")
-    
-    # Also save the categories to a file that can be imported by other scripts
-    categories_file_path = "/workspace/all_architecture_categories.py"
-    with open(categories_file_path, 'w', encoding='utf-8') as f:
-        f.write("# Generated file with all architecture categories\n\n")
-        f.write("ALL_ARCHITECTURE_CATEGORIES = [\n")
-        for cat in all_categories:
-            f.write(f"    {repr(cat)},\n")
-        f.write("]\n")
-    
-    print(f"\nAll architecture categories also saved to: {categories_file_path}")
+    # Also save summary
+    print("\n📋 Category summary:")
+    for cat_name, archs in categories_dict.items():
+        print(f"   {cat_name}: {len(archs)} architectures")
 
 
 if __name__ == "__main__":
