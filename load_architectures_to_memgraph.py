@@ -7,7 +7,7 @@ import sys
 import os
 sys.path.append('/workspace')
 
-from Architecture_Categories.architecture_data import ARCHITECTURE_CATEGORIES
+from Architecture_Categories.architecture_data import FEEDFORWARD_ARCHITECTURES
 from connection_manager import ConnectionManager
 from config import db_config
 import importlib.util
@@ -18,7 +18,7 @@ def get_all_architecture_categories():
     categories = []
     
     # Add the main FeedForward categories
-    categories.extend(ARCHITECTURE_CATEGORIES)
+    categories.extend(FEEDFORWARD_ARCHITECTURES)
     
     # Get all Python files in Architecture_Categories directory
     arch_dir = os.path.join(os.path.dirname(__file__), 'Architecture_Categories')
