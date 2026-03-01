@@ -176,7 +176,6 @@ def initialize_database():
     # Create indexes if they don't exist
     indexes = [
         "CREATE INDEX ON :Architecture(name);",
-        "CREATE INDEX ON :ArchitectureCategory(name);",
         "CREATE INDEX ON :Tag(name);"
     ]
     

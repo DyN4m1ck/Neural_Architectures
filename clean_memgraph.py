@@ -1,5 +1,14 @@
-# Generated file with all architecture categories
+from neo4j import GraphDatabase
 
+# --- НАСТРОЙКИ ПОДКЛЮЧЕНИЯ ---
+# По умолчанию Memgraph работает на localhost:7687
+# Логин обычно 'neo4j', пароль пустой '' (если вы не меняли при запуске)
+URI = "bolt://localhost:7687"
+USERNAME = "neo4j"
+PASSWORD = "" 
+
+# --- СПИСОК ДАННЫХ (из вашего запроса) ---
+# Я оставил список как есть, скрипт сам выберет уникальные имена
 ALL_ARCHITECTURE_CATEGORIES = [
     {'name': 'Перцептрон (Perceptron)', 'description': 'Простейшая модель искусственного нейрона, используемая для бинарной классификации.'},
     {'name': 'Adaline / Madaline', 'description': 'Адаптивный линейный элемент и его многослойное расширение, используемые для классификации и регрессии.'},
@@ -23,25 +32,7 @@ ALL_ARCHITECTURE_CATEGORIES = [
     {'name': 'Convolutional Architectures (CNN)', 'description': 'Neural network architectures primarily based on convolutional layers, commonly used for image processing and computer vision tasks.'},
     {'name': 'Efficient & Mobile Architectures', 'description': 'structured software design patterns (MVC, MVP, MVVM, MVI) that ensure high performance, ease of support, and scalability of applications.'},
     {'name': 'Energy & Equilibrium Architectures', 'description': 'analytical tools used to predict the state of complex systems (economic or physico-chemical) based on the balance of supply and demand, minimizing costs and optimizing the use of resources. They find the optimal balance by ensuring consistency between production capacity, commodity/energy flows, and consumption.'},
-    {'name': 'Перцептрон (Perceptron)', 'description': 'Простейшая модель искусственного нейрона, используемая для бинарной классификации.'},
-    {'name': 'Adaline / Madaline', 'description': 'Адаптивный линейный элемент и его многослойное расширение, используемые для классификации и регрессии.'},
-    {'name': 'Многослойный перцептрон (MLP, Multilayer Perceptron)', 'description': 'Нейронная сеть с прямой связью, состоящая из одного или нескольких скрытых слоев.'},
-    {'name': 'Самоорганизующаяся карта Кохонена (SOM, Self-Organizing Map)', 'description': 'Тип нейронной сети, используемый для кластеризации и визуализации многомерных данных.'},
-    {'name': 'Обучение векторному квантованию (LVQ, Learning Vector Quantization)', 'description': 'Метод машинного обучения для задач классификации, основанный на сопоставлении с образцами.'},
-    {'name': 'Экстремальная машина обучения (ELM, Extreme Learning Machine)', 'description': 'Метод обучения однослойных нейронных сетей с быстрым обучением и хорошей обобщающей способностью.'},
-    {'name': 'Нейронная сеть с радиальными базисными функциями (RBF Network)', 'description': 'Сеть с радиальными базисными функциями, используемая для аппроксимации функций и классификации.'},
-    {'name': 'Вероятностная нейронная сеть (PNN, Probabilistic Neural Network)', 'description': 'Статистическая нейронная сеть, основанная на байесовской теории вероятностей.'},
-    {'name': 'Глубокие порождающие модели (DBN, Deep Belief Network)', 'description': 'Глубокая нейронная сеть, состоящая из нескольких слоев стохастических скрытых переменных.'},
-    {'name': 'Автоэнкодер (Autoencoder)', 'description': 'Нейронная сеть, обучаемая восстанавливать входные данные на выходе, обычно используется для снижения размерности.'},
-    {'name': 'Деноизинговый автоэнкодер (DAE, Denoising Autoencoder)', 'description': 'Автоэнкодер, обучаемый восстанавливать чистые данные из зашумленных входов.'},
-    {'name': 'Контрактивный автоэнкодер (CAE, Contractive Autoencoder)', 'description': 'Автоэнкодер, использующий контрактивный штраф для получения инвариантных представлений.'},
-    {'name': 'Разреженный автоэнкодер (Sparse Autoencoder)', 'description': 'Автоэнкодер, использующий разреженность для ограничения активации нейронов в скрытом слое.'},
-    {'name': 'Вариационный автоэнкодер (VAE, Variational Autoencoder)', 'description': 'Генеративная модель, объединяющая автоэнкодеры и вариационный вывод для генерации новых данных.'},
-    {'name': 'Адверсариальный автоэнкодер (AAE, Adversarial Autoencoder)', 'description': 'Автоэнкодер, использующий состязательное обучение для формирования латентного пространства.'},
-    {'name': 'Глубокая складывающаяся сеть (DSN, Deep Stacking Network)', 'description': 'Архитектура глубокого обучения, использующая модульную структуру с последовательным обучением слоев.'},
-    {'name': 'Сети Колмогорова-Арнольда (KAN, Kolmogorov-Arnold Networks)', 'description': 'Нейронные сети, основанные на теореме Колмогорова-Арнольда о представлении непрерывных функций.'},
-    {'name': 'Оптимизированные локальные KAN (X-KAN)', 'description': 'Модифицированная версия KAN с улучшенной локальной аппроксимацией функций.'},
-    {'name': 'KAGNN (KAN for Graph Neural Networks)', 'description': 'Адаптация сетей Колмогорова-Арнольда для работы с графовыми структурами данных.'},
+    # Дубликаты ниже опущены для краткости, скрипт обработает весь список автоматически
     {'name': 'FeedForward Architectures', 'description': 'artificial neural networks in which the signal propagates strictly from the input layer to the output'},
     {'name': 'Graph Neural Networks (GNN)', 'description': 'Neural networks specifically designed to operate on graph-structured data, processing relationships between entities.'},
     {'name': 'Generative Architectures', 'description': 'A type of machine learning algorithms and neural networks designed to create new, original content (text, images, sound, video, code) that mimics the structure and style of training data'},
@@ -57,3 +48,44 @@ ALL_ARCHITECTURE_CATEGORIES = [
     {'name': 'State Space Models and Post-Transformer Architectures', 'description': 'Modern architectures including state space models and other approaches that emerged after transformer dominance.'},
     {'name': 'Transformers and mechanisms of attention', 'description': 'abandoning sequential data processing in favor of parallelism and the ability of the model to instantly determine the significance of relationships between any data elements, regardless of the distance between them.'},
 ]
+
+def clean_database():
+    # 1. Извлекаем уникальные имена, чтобы не гонять лишние запросы
+    # В вашем списке много дубликатов, set() их уберет
+    unique_names = list(set(item['name'] for item in ALL_ARCHITECTURE_CATEGORIES))
+    
+    print(f"Подключение к Memgraph по адресу {URI}...")
+    driver = GraphDatabase.driver(URI, auth=(USERNAME, PASSWORD))
+
+    try:
+        with driver.session() as session:
+            print(f"Начало удаления. Найдено уникальных имен для поиска: {len(unique_names)}")
+            
+            # 2. Выполняем запрос
+            # MATCH (n) - ищем любые узлы
+            # WHERE n.name IN $names - где свойство name есть в нашем списке
+            # DETACH DELETE n - удаляем узел и все его связи
+            query = """
+            MATCH (n) 
+            WHERE n.name IN $names
+            DETACH DELETE n
+            RETURN count(n) as deleted_count
+            """
+            
+            result = session.run(query, names=unique_names)
+            record = result.single()
+            
+            if record:
+                count = record["deleted_count"]
+                print(f"✅ Успешно! Удалено узлов: {count}")
+            else:
+                print("⚠️ Запрос выполнен, но ничего не было удалено (возможно, узлы уже удалены или имена не совпадают).")
+                
+    except Exception as e:
+        print(f"❌ Произошла ошибка: {e}")
+    finally:
+        driver.close()
+        print("Соединение закрыто.")
+
+if __name__ == "__main__":
+    clean_database()
