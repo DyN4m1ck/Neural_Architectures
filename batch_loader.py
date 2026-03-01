@@ -18,7 +18,7 @@ class BatchLoader:
         
     def get_all_categories_and_architectures(self):
         """Parse all 17 files and extract categories + architectures"""
-        arch_dir = Path('/workspace/Architecture_Categories')
+        arch_dir = Path('./Architecture_Categories')
         result = {}
         
         # Files to process (excluding __init__.py and architecture_data.py)
@@ -108,15 +108,21 @@ class BatchLoader:
             return
         
         # Build a single query with UNWIND for better performance
+        # Using MERGE to avoid duplicates and adding category label to Architecture node
         query = """
         MATCH (c:Category {name: $category_name})
         UNWIND $architectures AS arch_data
-        CREATE (a:Architecture {
-            name: arch_data.name,
-            description: arch_data.description,
-            category: $category_name
+        MERGE (a:Architecture {
+            name: arch_data.name
         })
-        CREATE (a)-[:BELONGS_TO]->(c)
+        ON CREATE SET 
+            a.description = arch_data.description,
+            a.category = $category_name
+        ON MATCH SET 
+            a.description = arch_data.description,
+            a.category = $category_name
+        WITH a, c
+        MERGE (a)-[:BELONGS_TO]->(c)
         """
         
         # Prepare architecture data
