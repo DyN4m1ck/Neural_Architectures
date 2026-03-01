@@ -98,6 +98,7 @@ python initialize_categories.py
 3. Implement proper error handling
 4. Add unit tests
 5. Improve security (connection parameters)
+6. **Address large Cypher file issue** - DONE: Replaced with parameterized queries and batch loading
 
 ### Medium-term Goals
 1. Implement relationships between architectures
@@ -112,6 +113,34 @@ python initialize_categories.py
 3. API for external integrations
 4. Collaborative editing features
 5. Research paper integration
+
+## Project Improvements
+
+To address the issue with the large Cypher file (>10k lines), we've implemented several improvements:
+
+1. **Parameterized Cypher Queries**: Instead of generating a huge static Cypher file, we now use parameterized queries that can be executed with dynamic data.
+
+2. **Batch Loading**: A batch loader implementation that loads data efficiently in chunks to reduce memory usage and improve performance.
+
+3. **Dynamic Data Processing**: Data is processed dynamically from the architecture category files rather than being hardcoded in a large file.
+
+## Usage
+
+### Using Parameterized Queries
+Instead of using the large `memgraph_two_level_hierarchy.cypher` file, use the parameterized approach:
+
+```bash
+# See the generated parameterized queries in:
+cat parameterized_queries.json
+cat parameterized_queries_example.cypher
+```
+
+### Batch Loading
+Use the batch loader for efficient data loading:
+
+```bash
+python3 batch_loader.py
+```
 
 ## Contributing
 
