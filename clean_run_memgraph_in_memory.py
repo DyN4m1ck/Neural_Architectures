@@ -1,9 +1,3 @@
-
----
-
-## Быстрое решение (можете использовать прямо сейчас):
-
-```python
 #!/usr/bin/env python3
 """
 Script to create two-level hierarchy in Memgraph:
