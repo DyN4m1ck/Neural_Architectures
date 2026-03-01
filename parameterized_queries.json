@@ -1,0 +1,8 @@
+{
+  "create_indexes": [
+    "CREATE INDEX ON :Category(name);",
+    "CREATE INDEX ON :Architecture(name);"
+  ],
+  "create_categories": "\n        UNWIND $categories AS cat_data\n        MERGE (c:Category {name: cat_data.name})\n        SET c.type = 'category_group',\n            c.architecture_count = cat_data.count\n        ",
+  "create_architectures_for_category": "\n        MATCH (c:Category {name: $category_name})\n        UNWIND $architectures AS arch_data\n        MERGE (a:Architecture {name: arch_data.name})\n        SET a.description = arch_data.description,\n            a.category = $category_name\n        WITH a, c\n        MERGE (a)-[:BELONGS_TO]->(c)\n        "
+}
