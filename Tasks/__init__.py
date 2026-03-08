@@ -1,71 +1,100 @@
 """
-Tasks Categories module initialization.
-2-level architecture similar to Architecture_Categories.
+Tasks Subcategories Module
 """
 
-from .Semantic import SEMANTIC_TASKS, LINGUISTICS_AND_LANGUAGE, PROGRAMMING_AND_CODE, MATHEMATICS_SYMBOLIC, LOGIC_AND_KNOWLEDGE, CYBERSECURITY, PHILOSOPHY_AND_HUMANITIES, LAW_AND_JURISPRUDENCE
-from .Perceptual import PERCEPTUAL_TASKS, COMPUTER_VISION, MEDICAL_IMAGING, AUDIO_AND_SOUND, TACTILE_AND_PHYSICAL_SENSORS, MULTISENSORY
-from .Structured import STRUCTURED_TASKS, TABULAR_DATA, TIME_SERIES, GRAPHS, BIOLOGY, MEDICAL_DATA, HIERARCHIES_AND_ONTOLOGIES
-from .Physical import PHYSICAL_TASKS, PHYSICS, QUANTUM_MECHANICS, ASTROPHYSICS_AND_ASTRONOMY, CHEMISTRY, EARTH_SCIENCES, MATERIALS_SCIENCE, ECOLOGY_AND_ENVIRONMENT
-from .Control import CONTROL_TASKS, ROBOTICS, CONTROL_THEORY, OPTIMIZATION, DECISION_MAKING, AUTONOMOUS_SYSTEMS, LOGISTICS_AND_SUPPLY_CHAIN, ENERGY_AND_INFRASTRUCTURE
-from .Hybrid import HYBRID_TASKS, MULTIMODAL, MULTIDIMENSIONAL_PROJECTIONS, CROSS_DOMAIN, MEDICINE_AND_TECHNOLOGY, META_TASKS, COMBINATORIAL_TASKS
+# Semantic subcategories
+from .Linguistics import Linguistics
+from .Programming import Programming
+from .Mathematics import Mathematics
+from .Logic import Logic
+from .Cybersecurity import Cybersecurity
+from .Philosophy import Philosophy
+from .Law import Law
+
+# Perceptual subcategories
+from .ComputerVision import ComputerVision
+from .MedicalImaging import MedicalImaging
+from .Audio import Audio
+from .Tactile import Tactile
+from .MultiSensor import MultiSensor
+
+# Structured subcategories
+from .TabularData import TabularData
+from .TimeSeries import TimeSeries
+from .Graphs import Graphs
+from .Biology import Biology
+from .MedicalData import MedicalData
+from .Hierarchies import Hierarchies
+
+# Physical subcategories
+from .Physics import Physics
+from .QuantumMechanics import QuantumMechanics
+from .Astrophysics import Astrophysics
+from .Chemistry import Chemistry
+from .EarthSciences import EarthSciences
+from .MaterialsScience import MaterialsScience
+from .Ecology import Ecology
+
+# Control subcategories
+from .Robotics import Robotics
+from .ControlTheory import ControlTheory
+from .Optimization import Optimization
+from .DecisionMaking import DecisionMaking
+from .AutonomousSystems import AutonomousSystems
+from .Logistics import Logistics
+from .Energy import Energy
+
+# Hybrid subcategories
+from .Multimodal import Multimodal
+from .Multidimensional import Multidimensional
+from .CrossDomain import CrossDomain
+from .MedicalTech import MedicalTech
+from .MetaTasks import MetaTasks
+from .Combinatorial import Combinatorial
 
 __all__ = [
-    # Main categories
-    "SEMANTIC_TASKS",
-    "PERCEPTUAL_TASKS",
-    "STRUCTURED_TASKS",
-    "PHYSICAL_TASKS",
-    "CONTROL_TASKS",
-    "HYBRID_TASKS",
-    
-    # SEMANTIC subcategories
-    "LINGUISTICS_AND_LANGUAGE",
-    "PROGRAMMING_AND_CODE",
-    "MATHEMATICS_SYMBOLIC",
-    "LOGIC_AND_KNOWLEDGE",
-    "CYBERSECURITY",
-    "PHILOSOPHY_AND_HUMANITIES",
-    "LAW_AND_JURISPRUDENCE",
-    
-    # PERCEPTUAL subcategories
-    "COMPUTER_VISION",
-    "MEDICAL_IMAGING",
-    "AUDIO_AND_SOUND",
-    "TACTILE_AND_PHYSICAL_SENSORS",
-    "MULTISENSORY",
-    
-    # STRUCTURED subcategories
-    "TABULAR_DATA",
-    "TIME_SERIES",
-    "GRAPHS",
-    "BIOLOGY",
-    "MEDICAL_DATA",
-    "HIERARCHIES_AND_ONTOLOGIES",
-    
-    # PHYSICAL subcategories
-    "PHYSICS",
-    "QUANTUM_MECHANICS",
-    "ASTROPHYSICS_AND_ASTRONOMY",
-    "CHEMISTRY",
-    "EARTH_SCIENCES",
-    "MATERIALS_SCIENCE",
-    "ECOLOGY_AND_ENVIRONMENT",
-    
-    # CONTROL subcategories
-    "ROBOTICS",
-    "CONTROL_THEORY",
-    "OPTIMIZATION",
-    "DECISION_MAKING",
-    "AUTONOMOUS_SYSTEMS",
-    "LOGISTICS_AND_SUPPLY_CHAIN",
-    "ENERGY_AND_INFRASTRUCTURE",
-    
-    # HYBRID subcategories
-    "MULTIMODAL",
-    "MULTIDIMENSIONAL_PROJECTIONS",
-    "CROSS_DOMAIN",
-    "MEDICINE_AND_TECHNOLOGY",
-    "META_TASKS",
-    "COMBINATORIAL_TASKS"
+    # Semantic
+    "Linguistics",
+    "Programming",
+    "Mathematics",
+    "Logic",
+    "Cybersecurity",
+    "Philosophy",
+    "Law",
+    # Perceptual
+    "ComputerVision",
+    "MedicalImaging",
+    "Audio",
+    "Tactile",
+    "MultiSensor",
+    # Structured
+    "TabularData",
+    "TimeSeries",
+    "Graphs",
+    "Biology",
+    "MedicalData",
+    "Hierarchies",
+    # Physical
+    "Physics",
+    "QuantumMechanics",
+    "Astrophysics",
+    "Chemistry",
+    "EarthSciences",
+    "MaterialsScience",
+    "Ecology",
+    # Control
+    "Robotics",
+    "ControlTheory",
+    "Optimization",
+    "DecisionMaking",
+    "AutonomousSystems",
+    "Logistics",
+    "Energy",
+    # Hybrid
+    "Multimodal",
+    "Multidimensional",
+    "CrossDomain",
+    "MedicalTech",
+    "MetaTasks",
+    "Combinatorial",
 ]
