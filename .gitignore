@@ -1,47 +1,275 @@
-```python
-# Compiled and build artifacts
-*.pyc
+# Python
 __pycache__/
-*.o
-*.obj
+*.py[cod]
+*$py.class
 *.so
-*.a
-*.dll
-*.exe
-*.out
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Dependencies
+# Environment
 .venv/
 venv/
-.env
-.env.local
-*.env.*
+env/
+ENV/
 
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-*.swo
-
-# Editors
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+*.tmp
 
-# Coverage reports
+# Logs
+*.log
+
+# Coverage
 .coverage
 coverage/
 htmlcov/
 
-# Testing
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Pytest
 .pytest_cache/
+pytestdebug.log
+
+# MyPy
 .mypy_cache/
 
-# Distribution / packaging
-dist/
-build/
-*.egg-info/
+# Jupyter
+.ipynb_checkpoints/
 
-# OS generated files
+# OS
 .DS_Store
 Thumbs.db
-```
+
+# Environment variables
+.env
+.env.local
+*.env
+.env.*.local
+
+# Miscellaneous
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+ thumbs.tps
+.AppleDouble
+.LSOverride
+
+# These might be hidden already, but better safe than sorry
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+ thumbs.tps
+.AppleDouble
+.LSOverride
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# C extensions
+*.so
+
+# Package manager
+node_modules/
+jspm_packages/
+
+# Bower dependency directory (make sure this matches your bowerrc settings)
+bower_components/
+
+# Grunt intermediate storage (make sure this matches your grunt config)
+.grunt
+
+# Complicated Node shit
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Testing
+.nyc_output/
+
+# Temporary folders
+tmp/
+temp/
+
+# System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Compressed files
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+
+# Julia
+julia-*/
+
+# Zig
+zig-out/
+zig-cache/
+
+# Rust
+target/
+
+# Gradle
+.gradle/
+build/
+
+# Maven
+target/
+
+# Go
+*.o
+*.a
+*.so
+*.exe
+*.dll
+*.dylib
+*.test
+*.prof
+coverage.out
+
+# C/C++
+*.o
+*.a
+*.so
+*.obj
+*.out
+*.exe
+*.dll
+*.dylib
+*.plist
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+
+# .NET
+*.dll
+*.exe
+*.pdb
+*.nupkg
+*.nuspec
+packages/
+bin/
+obj/
+TestResults/
+
+# Android
+*.apk
+*.aar
+*.dex
+
+# iOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Qt
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+*.moc.cpp
+*.qm
+*.prl
+Makefile*
+
+# Web
+*.css.map
+*.js.map
+*.tsbuildinfo
+
+# Database
+*.db
+*.db-journal
+
+# Backup files
+*~
+*.bak
+*.swp
+*.swo
+
+# Lock files
+*.lock
+package-lock.json
+yarn.lock
+
+# Secrets
+secrets/
+secret/
+credentials/
+credential/
