@@ -1,0 +1,522 @@
+{
+  "section_id": "5",
+  "section_name": "CONTROL_SYSTEMS",
+  "description": "Управление, оптимизация и принятие решений",
+  "subsections": [
+    {
+      "id": "5.1",
+      "name": "ROBOTICS",
+      "children": [
+        {
+          "id": "5.1.1",
+          "name": "MOTION_CONTROL_KINEMATICS",
+          "tasks": [
+            "Trajectory_Planning",
+            "Path_Planning",
+            "Position_Control",
+            "Velocity_Control",
+            "Force_Torque_Control",
+            "Impedance_Admittance_Control",
+            "Hybrid_Position_Force_Control",
+            "Inverse_Kinematics",
+            "Inverse_Dynamics",
+            "Adaptive_Motion_Control"
+          ]
+        },
+        {
+          "id": "5.1.2",
+          "name": "MANIPULATION_GRASPING",
+          "tasks": [
+            "Grasp_Planning",
+            "Manipulator_Control",
+            "Dexterous_Manipulation",
+            "Pick_and_Place",
+            "Assembly_Tasks",
+            "Bimanual_Manipulation"
+          ]
+        },
+        {
+          "id": "5.1.3",
+          "name": "SLAM_LOCALIZATION",
+          "tasks": [
+            "Visual_SLAM",
+            "LiDAR_SLAM",
+            "Multi_Sensor_SLAM",
+            "Semantic_SLAM",
+            "Dynamic_SLAM",
+            "Collaborative_SLAM"
+          ]
+        },
+        {
+          "id": "5.1.4",
+          "name": "AUTONOMOUS_NAVIGATION",
+          "tasks": [
+            "Indoor_Navigation",
+            "Outdoor_Navigation",
+            "Dynamic_Env_Navigation",
+            "Uncertainty_Navigation",
+            "Long_Term_Autonomy"
+          ]
+        },
+        {
+          "id": "5.1.5",
+          "name": "MULTI_ROBOT_COORDINATION",
+          "tasks": [
+            "Swarm_Robotics",
+            "Multi_Robot_Path_Planning",
+            "Task_Allocation",
+            "Formation_Control",
+            "Cooperative_Manipulation",
+            "Consensus_Algorithms"
+          ]
+        },
+        {
+          "id": "5.1.6",
+          "name": "HRI",
+          "tasks": [
+            "Collaborative_Robots",
+            "Teleoperation",
+            "Programming_by_Demonstration",
+            "NLP_Robot_Control",
+            "Gesture_Control",
+            "HRI_Safety"
+          ]
+        },
+        {
+          "id": "5.1.7",
+          "name": "SPECIALIZED_ROBOTS",
+          "tasks": [
+            "Wheeled_Robots",
+            "Legged_Robots_Bipedal",
+            "Legged_Robots_Quadrupedal",
+            "Tracked_Robots",
+            "Serial_Manipulators",
+            "Parallel_Manipulators",
+            "Soft_Robotics",
+            "Micro_Nano_Robotics"
+          ]
+        },
+        {
+          "id": "5.1.8",
+          "name": "PERCEPTION_INTEGRATION",
+          "tasks": [
+            "Sensor_Fusion",
+            "Tactile_Sensing_Control",
+            "Visual_Servoing",
+            "Proprioceptive_Control"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5.2",
+      "name": "CONTROL_THEORY",
+      "children": [
+        {
+          "id": "5.2.1",
+          "name": "CLASSICAL_CONTROL",
+          "tasks": ["PID_Control", "Lead_Lag_Compensators", "Frequency_Methods", "Root_Locus", "Cascade_Control"]
+        },
+        {
+          "id": "5.2.2",
+          "name": "MODERN_CONTROL",
+          "tasks": ["State_Space_Methods", "LQR_LQG", "Pole_Placement", "Observer_Design", "Kalman_Filter_EKF_UKF"]
+        },
+        {
+          "id": "5.2.3",
+          "name": "ROBUST_CONTROL",
+          "tasks": ["H_Infinity_Control", "H2_Control", "Mu_Synthesis", "Sliding_Mode_Control", "QFT"]
+        },
+        {
+          "id": "5.2.4",
+          "name": "ADAPTIVE_CONTROL",
+          "tasks": ["MRAC", "Self_Tuning_Regulators", "Gain_Scheduling", "Adaptive_Observers"]
+        },
+        {
+          "id": "5.2.5",
+          "name": "NONLINEAR_CONTROL",
+          "tasks": ["Feedback_Linearization", "Backstepping", "Lyapunov_Based_Control", "Passivity_Based_Control"]
+        },
+        {
+          "id": "5.2.6",
+          "name": "OPTIMAL_CONTROL",
+          "tasks": ["Calculus_of_Variations", "Pontryagin_Maximum_Principle", "Dynamic_Programming", "HJB_Equation"]
+        },
+        {
+          "id": "5.2.7",
+          "name": "MPC",
+          "tasks": ["Linear_MPC", "Nonlinear_MPC", "Economic_MPC", "Robust_MPC", "Stochastic_MPC", "Distributed_MPC"]
+        },
+        {
+          "id": "5.2.8",
+          "name": "DISTRIBUTED_CONTROL",
+          "tasks": ["Distributed_Control_Systems", "Networked_Control", "Consensus_Protocols", "Event_Triggered_Control"]
+        },
+        {
+          "id": "5.2.9",
+          "name": "HYBRID_SYSTEMS",
+          "tasks": ["Hybrid_Automata", "Switched_Systems", "Impulsive_Systems", "Sampled_Data_Systems"]
+        },
+        {
+          "id": "5.2.10",
+          "name": "INTELLIGENT_CONTROL",
+          "tasks": ["Fuzzy_Logic_Control", "Neural_Network_Control", "Genetic_Algorithms_Control", "RL_Control"]
+        }
+      ]
+    },
+    {
+      "id": "5.3",
+      "name": "OPTIMIZATION",
+      "children": [
+        {
+          "id": "5.3.1",
+          "name": "LINEAR_OPTIMIZATION",
+          "tasks": ["Linear_Programming", "Simplex_Method", "Interior_Point_Methods", "Network_Flow"]
+        },
+        {
+          "id": "5.3.2",
+          "name": "NONLINEAR_OPTIMIZATION",
+          "tasks": ["Gradient_Descent", "Newton_Method", "BFGS_LBFGS", "SQP", "Constrained_Optimization"]
+        },
+        {
+          "id": "5.3.3",
+          "name": "CONVEX_OPTIMIZATION",
+          "tasks": ["SOCP", "SDP", "Geometric_Programming"]
+        },
+        {
+          "id": "5.3.4",
+          "name": "COMBINATORIAL_OPTIMIZATION",
+          "tasks": ["Integer_Programming", "TSP", "VRP", "Knapsack", "Scheduling", "Graph_Optimization"]
+        },
+        {
+          "id": "5.3.5",
+          "name": "MULTI_OBJECTIVE_OPTIMIZATION",
+          "tasks": ["Pareto_Optimality", "Evolutionary_Algorithms_MOO", "Goal_Programming"]
+        },
+        {
+          "id": "5.3.6",
+          "name": "GLOBAL_OPTIMIZATION",
+          "tasks": ["Simulated_Annealing", "Genetic_Algorithms", "Particle_Swarm", "Bayesian_Optimization"]
+        },
+        {
+          "id": "5.3.7",
+          "name": "STOCHASTIC_OPTIMIZATION",
+          "tasks": ["Stochastic_Programming", "Robust_Optimization", "Chance_Constrained", "Monte_Carlo"]
+        },
+        {
+          "id": "5.3.8",
+          "name": "ONLINE_OPTIMIZATION",
+          "tasks": ["Online_Convex_Optimization", "Multi_Armed_Bandits", "Regret_Minimization"]
+        },
+        {
+          "id": "5.3.9",
+          "name": "DISTRIBUTED_OPTIMIZATION",
+          "tasks": ["ADMM", "Distributed_Gradient_Descent", "Federated_Optimization"]
+        },
+        {
+          "id": "5.3.10",
+          "name": "ML_OPTIMIZATION",
+          "tasks": ["SGD_Variants", "Adam_RMSprop", "Hyperparameter_Optimization", "Neural_Architecture_Search"]
+        }
+      ]
+    },
+    {
+      "id": "5.4",
+      "name": "DECISION_MAKING_AI",
+      "children": [
+        {
+          "id": "5.4.1",
+          "name": "REINFORCEMENT_LEARNING",
+          "tasks": ["Q_Learning", "Policy_Gradient", "Actor_Critic", "DQN_Variants", "PPO_TRPO", "SAC", "Model_Based_RL", "Multi_Agent_RL", "Imitation_Learning", "Offline_RL", "Safe_RL"]
+        },
+        {
+          "id": "5.4.2",
+          "name": "MDP_FRAMEWORK",
+          "tasks": ["MDP", "POMDP", "Semi_Markov_Decision_Processes", "Continuous_Time_MDP"]
+        },
+        {
+          "id": "5.4.3",
+          "name": "GAME_THEORY",
+          "tasks": ["Nash_Equilibrium", "Stackelberg_Games", "Bayesian_Games", "Mechanism_Design", "Auction_Theory"]
+        },
+        {
+          "id": "5.4.4",
+          "name": "STRATEGIC_GAMES",
+          "tasks": ["Board_Games_AI", "RTS_Games", "MCTS", "AlphaGo_Algorithms"]
+        },
+        {
+          "id": "5.4.5",
+          "name": "PLANNING_SEARCH",
+          "tasks": ["Classical_Planning_STRIPS", "Heuristic_Search_A_Star", "HTN_Planning", "Temporal_Planning"]
+        },
+        {
+          "id": "5.4.6",
+          "name": "DECISION_UNDER_UNCERTAINTY",
+          "tasks": ["Bayesian_Decision_Making", "Utility_Theory", "Risk_Analysis", "Decision_Trees", "Influence_Diagrams"]
+        },
+        {
+          "id": "5.4.7",
+          "name": "GROUP_DECISION_MAKING",
+          "tasks": ["Voting_Systems", "Social_Choice_Theory", "Consensus_Building"]
+        },
+        {
+          "id": "5.4.8",
+          "name": "COGNITIVE_ARCHITECTURES",
+          "tasks": ["BDI_Architecture", "SOAR", "ACT_R", "Logical_Reasoning_Systems"]
+        }
+      ]
+    },
+    {
+      "id": "5.5",
+      "name": "AUTONOMOUS_SYSTEMS",
+      "children": [
+        {
+          "id": "5.5.1",
+          "name": "AUTONOMOUS_DRIVING",
+          "tasks": ["Perception_AD", "Localization_AD", "Motion_Planning_AD", "Behavior_Planning", "Traffic_Decision_Making", "Parking_Automation", "V2X_Communication"]
+        },
+        {
+          "id": "5.5.2",
+          "name": "UAV_DRONES",
+          "tasks": ["Quadcopter_Control", "Fixed_Wing_Control", "VTOL", "Swarm_Drones", "Drone_Racing", "Collision_Avoidance_Air"]
+        },
+        {
+          "id": "5.5.3",
+          "name": "MARINE_AUTONOMY",
+          "tasks": ["ASV_Control", "AUV_Control", "ROV_Control", "Dynamic_Positioning", "Collision_Avoidance_Sea"]
+        },
+        {
+          "id": "5.5.4",
+          "name": "SPACE_AUTONOMY",
+          "tasks": ["Satellite_Attitude_Control", "Orbit_Control", "Rendezvous_Docking", "Planetary_Rovers", "Deep_Space_Autonomy"]
+        },
+        {
+          "id": "5.5.5",
+          "name": "MOBILE_ROBOTS_AUTO",
+          "tasks": ["Warehouse_Robots", "Delivery_Robots", "Service_Robots", "Agri_Robots"]
+        },
+        {
+          "id": "5.5.6",
+          "name": "NAVIGATION_TECH",
+          "tasks": ["GPS_GNSS_Nav", "Visual_Odometry", "Inertial_Nav", "LiDAR_Odometry", "Sensor_Fusion_Nav"]
+        },
+        {
+          "id": "5.5.7",
+          "name": "SAFETY_RELIABILITY",
+          "tasks": ["Fault_Detection_Isolation", "Fault_Tolerant_Control", "Safety_Verification", "Emergency_Maneuvers"]
+        }
+      ]
+    },
+    {
+      "id": "5.6",
+      "name": "LOGISTICS_SUPPLY_CHAIN",
+      "children": [
+        {
+          "id": "5.6.1",
+          "name": "ROUTE_OPTIMIZATION",
+          "tasks": ["VRP_Variants", "Dynamic_VRP", "Stochastic_VRP", "Last_Mile_Delivery", "Green_VRP"]
+        },
+        {
+          "id": "5.6.2",
+          "name": "INVENTORY_MANAGEMENT",
+          "tasks": ["EOQ", "Multi_Echelon_Inventory", "Safety_Stock_Optimization", "Perishable_Inventory"]
+        },
+        {
+          "id": "5.6.3",
+          "name": "DEMAND_FORECASTING",
+          "tasks": ["Time_Series_Forecasting", "Demand_Sensing", "Seasonal_Forecasting", "New_Product_Forecasting"]
+        },
+        {
+          "id": "5.6.4",
+          "name": "WAREHOUSE_MGMT",
+          "tasks": ["Layout_Optimization", "Slotting_Optimization", "Order_Picking", "Cross_Docking"]
+        },
+        {
+          "id": "5.6.5",
+          "name": "SUPPLY_CHAIN_OPT",
+          "tasks": ["Network_Design", "Supplier_Selection", "Production_Planning", "Reverse_Logistics", "Resilience_Mgmt"]
+        },
+        {
+          "id": "5.6.6",
+          "name": "TRANSPORT_LOGISTICS",
+          "tasks": ["Fleet_Management", "Load_Optimization", "Intermodal_Transport", "Traffic_Management"]
+        }
+      ]
+    },
+    {
+      "id": "5.7",
+      "name": "ENERGY_INFRASTRUCTURE",
+      "children": [
+        {
+          "id": "5.7.1",
+          "name": "SMART_GRIDS",
+          "tasks": ["Grid_Optimization", "Load_Forecasting", "Demand_Response", "Microgrid_Control", "Voltage_Freq_Control", "Energy_Market_Opt"]
+        },
+        {
+          "id": "5.7.2",
+          "name": "RENEWABLE_ENERGY",
+          "tasks": ["Wind_Farm_Control", "Solar_PV_Opt", "Hydro_Control", "Energy_Storage_Mgmt", "Hybrid_Renewable_Systems"]
+        },
+        {
+          "id": "5.7.3",
+          "name": "BUILDING_AUTOMATION",
+          "tasks": ["HVAC_Control", "Lighting_Control", "Occupancy_Based_Control", "Predictive_Maintenance_Building"]
+        },
+        {
+          "id": "5.7.4",
+          "name": "TRAFFIC_CONTROL",
+          "tasks": ["Traffic_Signal_Control", "Adaptive_Traffic_Control", "Congestion_Mgmt", "ITS", "Public_Transport_Opt"]
+        },
+        {
+          "id": "5.7.5",
+          "name": "WATER_MGMT",
+          "tasks": ["Water_Distribution_Control", "Pump_Scheduling", "Leak_Detection", "Wastewater_Treatment"]
+        },
+        {
+          "id": "5.7.6",
+          "name": "OIL_GAS",
+          "tasks": ["Pipeline_Control", "Refinery_Optimization", "Drilling_Automation", "Production_Optimization"]
+        }
+      ]
+    },
+    {
+      "id": "5.8",
+      "name": "PROCESS_CONTROL_INDUSTRIAL",
+      "children": [
+        {
+          "id": "5.8.1",
+          "name": "INDUSTRIAL_SYSTEMS",
+          "tasks": ["PLC_Systems", "DCS_Systems", "SCADA", "IIoT_Integration"]
+        },
+        {
+          "id": "5.8.2",
+          "name": "PROCESS_CONTROL",
+          "tasks": ["Batch_Process_Control", "Continuous_Process_Control", "Chemical_Process_Control", "Pharma_Manufacturing"]
+        },
+        {
+          "id": "5.8.3",
+          "name": "MANUFACTURING_AUTO",
+          "tasks": ["Flexible_Automation", "CIM", "Industry_4_0", "Digital_Twins", "Cyber_Physical_Production"]
+        },
+        {
+          "id": "5.8.4",
+          "name": "QUALITY_CONTROL",
+          "tasks": ["Statistical_Process_Control", "Six_Sigma", "Automated_Inspection", "Defect_Detection", "Quality_Prediction"]
+        },
+        {
+          "id": "5.8.5",
+          "name": "PREDICTIVE_MAINTENANCE",
+          "tasks": ["Condition_Monitoring", "Fault_Prediction", "RUL_Estimation", "Anomaly_Detection", "Maintenance_Scheduling"]
+        },
+        {
+          "id": "5.8.6",
+          "name": "SAFETY_SYSTEMS_IND",
+          "tasks": ["Emergency_Shutdown", "SIS_Systems", "Hazard_Detection", "Risk_Mitigation"]
+        }
+      ]
+    },
+    {
+      "id": "5.9",
+      "name": "SPECIALIZED_APPLICATIONS",
+      "children": [
+        {
+          "id": "5.9.1",
+          "name": "AEROSPACE_CONTROL",
+          "tasks": ["Flight_Control", "Autopilot", "Flight_Envelope_Protection", "Spacecraft_Guidance", "Launch_Vehicle_Control", "Formation_Flying"]
+        },
+        {
+          "id": "5.9.2",
+          "name": "AUTOMOTIVE_SYSTEMS",
+          "tasks": ["Engine_Control", "Transmission_Control", "ABS_ESC", "Suspension_Control", "Thermal_Mgmt", "Emissions_Control"]
+        },
+        {
+          "id": "5.9.3",
+          "name": "MEDICAL_DEVICES",
+          "tasks": ["Insulin_Pumps", "Pacemakers", "Anesthesia_Delivery", "Ventilator_Control", "Robotic_Surgery", "Prosthetics_Control"]
+        },
+        {
+          "id": "5.9.4",
+          "name": "AGRI_AUTOMATION",
+          "tasks": ["Precision_Agriculture", "Irrigation_Control", "Autonomous_Tractors", "Harvesting_Automation"]
+        },
+        {
+          "id": "5.9.5",
+          "name": "FINANCIAL_CONTROL",
+          "tasks": ["Algorithmic_Trading", "Portfolio_Optimization", "Risk_Mgmt_Fin", "Fraud_Detection", "Market_Making"]
+        },
+        {
+          "id": "5.9.6",
+          "name": "TELECOM_NETWORKS",
+          "tasks": ["Resource_Allocation", "Congestion_Control_Net", "Routing_Optimization", "Power_Control_Wireless", "QoS_Control"]
+        },
+        {
+          "id": "5.9.7",
+          "name": "ENVIRONMENTAL_CONTROL",
+          "tasks": ["Pollution_Monitoring", "Emissions_Control_Env", "Climate_Control_Systems", "Conservation_Mgmt"]
+        },
+        {
+          "id": "5.9.8",
+          "name": "DEFENSE_SECURITY",
+          "tasks": ["Missile_Guidance", "Radar_Tracking", "Unmanned_Defense_Systems", "Surveillance_Systems", "Threat_Response"]
+        }
+      ]
+    },
+    {
+      "id": "5.10",
+      "name": "METHODS_TOOLS",
+      "children": [
+        {
+          "id": "5.10.1",
+          "name": "SYSTEM_IDENTIFICATION",
+          "tasks": ["Parametric_ID", "Non_Parametric_ID", "Subspace_ID", "Online_ID", "Grey_Box_Modeling"]
+        },
+        {
+          "id": "5.10.2",
+          "name": "MODELING_SIMULATION",
+          "tasks": ["Dynamic_Simulation", "HIL", "SIL", "MIL", "Digital_Twins_Sim"]
+        },
+        {
+          "id": "5.10.3",
+          "name": "VERIFICATION_VALIDATION",
+          "tasks": ["Stability_Analysis", "Performance_Verification", "Robustness_Analysis", "Safety_Verification", "Formal_Methods"]
+        },
+        {
+          "id": "5.10.4",
+          "name": "IMPLEMENTATION_DEPLOYMENT",
+          "tasks": ["Embedded_Control", "Real_Time_Implementation", "Code_Generation", "Rapid_Prototyping"]
+        },
+        {
+          "id": "5.10.5",
+          "name": "MONITORING_DIAGNOSTICS",
+          "tasks": ["State_Estimation", "Parameter_Estimation", "Fault_Diagnosis", "Performance_Monitoring", "Health_Mgmt"]
+        }
+      ]
+    },
+    {
+      "id": "5.11",
+      "name": "EMERGING_DIRECTIONS",
+      "children": [
+        {
+          "id": "5.11.1",
+          "name": "QUANTUM_CONTROL",
+          "tasks": ["Quantum_State_Control", "Quantum_Gate_Optimization", "Quantum_Error_Correction", "Quantum_Feedback"]
+        },
+        {
+          "id": "5.11.2",
+          "name": "BIO_INSPIRED_CONTROL",
+          "tasks": ["Neural_Control_Bio", "Evolutionary_Control", "Swarm_Intelligence_Bio", "Morphological_Computation"]
+        },
+        {
+          "id": "5.11.3",
+          "name": "HUMAN_IN_LOOP",
+          "tasks": ["Shared_Autonomy", "Adaptive_Automation", "Brain_Computer_Interfaces", "Exoskeleton_Control"]
+        },
+        {
+          "id": "5.11.4",
+          "name": "EDGE_CLOUD_CONTROL",
+          "tasks": ["Cloud_Based_Control", "Edge_Computing_Control", "Fog_Computing", "Distributed_Cloud_Control"]
+        }
+      ]
+    }
+  ]
+}
